@@ -2,7 +2,9 @@ import os
 import django
 import pika
 import json
-
+from dotenv import load_dotenv
+load_dotenv()
+amq_id = os.getenv('AMQ_ID')
 
 # Set the DJANGO_SETTINGS_MODULE environment variable
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "taskynotification.settings")
@@ -13,7 +15,7 @@ django.setup()
 # from user.models import Product
 from notifications.models import Notification
 
-params = pika.URLParameters('')
+params = pika.URLParameters(amq_id)
 connection = pika.BlockingConnection(params)
 channel = connection.channel()
 
