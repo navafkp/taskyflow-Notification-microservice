@@ -13,7 +13,7 @@ django.setup()
 # from user.models import Product
 from notifications.models import Notification
 
-params = pika.URLParameters('amqps://tamelmkg:bAGQhUGeH658A5vM9E5wFA6wzQNaAkPc@puffin.rmq2.cloudamqp.com/tamelmkg')
+params = pika.URLParameters('')
 connection = pika.BlockingConnection(params)
 channel = connection.channel()
 
