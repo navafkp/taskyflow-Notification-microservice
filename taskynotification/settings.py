@@ -25,7 +25,12 @@ SECRET_KEY = 'django-insecure-25a*4wjz*j+1+tx9tvh-okx*xol)jzm7e48ts5rx%##czw+eum
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', 'backend', 'taskygateway-backend-1', '127.0.0.1', '0.0.0.0']
+ALLOWED_HOSTS = [
+    'docker-taskyflow-microservice-userservice-container-1', 'docker-taskyflow-microservice-notificationapp-container-1',  'docker-taskyflow-microservice-apiservice-container-1',
+    'docker-taskyflow-microservice-taskservice-container-1', 'www.taskyflow.online', 'taskyflow.online', '13.60.18.4',
+    '8000', '0.0.0.0:8200', "0.0.0.0:8000", '127.0.0.1', '0.0.0.0',
+    '8100', '127.0.0.1:8200', 'localhost',
+]
 
 
 # Application definition
@@ -45,7 +50,7 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
-        'corsheaders.middleware.CorsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -82,8 +87,8 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'taskynotification',
         'USER': 'postgres',
-        'PASSWORD': '1234',
-        'HOST': 'notificationdb',
+        'PASSWORD': '1345',
+        'HOST': 'docker-taskyflow-microservice-postgres-notification-1',
         'PORT': '5432',
     }
 }
@@ -129,3 +134,9 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 CORS_ORIGIN_ALLOW_ALL = True
+
+
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:3000",    'http://13.60.18.4', 'https://www.taskyflow.online', 'https://taskyflow.online', 'http://localhost:8000',
+    'http://127.0.0.1:9000', 'https://4d9c-103-180-2-229.ngrok-free.app', 'http://localhost:8500',
+]
